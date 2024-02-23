@@ -1,7 +1,6 @@
 <x-guest-layout>
     <div class="min-h-screen flex items-center justify-center bg-cover" style="background-image: url('https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
         <x-authentication-card>
-            
 
             <x-validation-errors class="mb-4" />
 
@@ -15,7 +14,6 @@
                 @csrf
                 <div class="flex items-center justify-center">
                     <img class="w-16 h-16" src="https://static.vecteezy.com/system/resources/thumbnails/022/283/133/small/computer-icon-in-gradient-colors-desktop-monitor-signs-illustration-png.png">
-                     
                 </div>
                 <div>
                     <x-label for="email" value="{{ __('Email') }}" />
@@ -34,7 +32,14 @@
                     </label>
                 </div>
 
-                <div class="flex items-center justify-end mt-4">
+                <div class="flex items-center justify-between mt-4"> <!-- Ovdje sam promijenio 'justify-end' u 'justify-between' -->
+                    <div>
+                        @if (Route::has('register'))
+                            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('register') }}"> <!-- Dodao sam link za registraciju -->
+                                {{ __('Register') }}
+                            </a>
+                        @endif
+                    </div>
                     @if (Route::has('password.request'))
                         <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
                             {{ __('Forgot your password?') }}
