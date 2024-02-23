@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-application-mark class="block h-9 w-auto" />
+                    <img class="w-10 h-10" src="https://static.vecteezy.com/system/resources/thumbnails/022/283/133/small/computer-icon-in-gradient-colors-desktop-monitor-signs-illustration-png.png">
                     </a>
                 </div>
 
@@ -27,10 +27,16 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link href="{{ route('customers') }}" :active="request()->routeIs('customers')">
+                        {{ __('Kupci') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link href="{{ route('purchases') }}" :active="request()->routeIs('purchases')">
                         {{ __('Kupovine') }}
                     </x-nav-link>
                 </div>
+                
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ms-6">

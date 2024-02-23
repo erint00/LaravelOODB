@@ -52,11 +52,21 @@ class PurchaseController extends Controller
         ->where('computers.ram', '>', 16)
         ->get();
 
+        //gaming racunari
+        $gaming_computers = DB::table('computers')
+        ->select('computers.naziv as computer_naziv', 'computers.procesor as computer_procesor', 'computers.graficka as computer_graficka', 'computers.ram as computer_ram')
+        ->groupBy('computers.id')
+        ->where('computers.procesor','Intel')->where('computers.ram','>',32)->where('computers.graficka','Nvidia')
+        ->get();
+
+
+
         return view('purchases.index',
         ['most_common_computers' => $most_common_computers,
          'AMD_computer_customers' => $AMD_computer_customers,
          'number_of_purchases' => $number_of_purchases,
          'most_ram_customers' => $most_ram_customers,
+         'gaming_computers' => $gaming_computers,
 
     ]);
     }
