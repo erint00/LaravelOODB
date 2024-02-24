@@ -39,6 +39,18 @@
                             </div>
                             </form>
                         </div>
+                        <div class="flex-1">
+                            <form method="POST" action="{{ route('file_add') }}">
+                            @csrf
+                            <input type="hidden" name="id" value="{{$computer->id}}">
+                            <div class="p-2">
+                                <button class="ml-4 inline-flex items-center px-4 py-2 bg-green-700 border border-transparent rounded-md
+                                font-semibold text-xs text-white uppercase">
+                                {{ __('Dodaj fajl') }}
+                                </button>
+                            </div>
+                            </form>
+                        </div>
                     </div>
                     @endforeach
                 </div>
